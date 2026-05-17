@@ -44,6 +44,22 @@ function linkOrCopySkills(srcSkills: string, destSkills: string, useCopies: bool
   symlinkSync(srcSkills, destSkills, "dir");
 }
 
+function assertSkillSources(repoRoot: string, skills: SkillManifestEntry[]): void {
+  for (const skill of skills) {
+    if (!skill.file.startsWith("skills/") || !skill.file.endsWith("/SKILL.md")) {
+      throw new Error(
+        `Invalid manifest path for ${skill.name}: ${skill.file}. Expected skills/<category>/<name>/SKILL.md.`,
+      );
+    }
+    const sourceFile = join(repoRoot, skill.file);
+    if (!existsSync(sourceFile)) {
+      throw new Error(
+        `Missing SKILL.md for ${skill.name} at ${sourceFile}. Fix .cursor/skills.json before running setup.`,
+      );
+    }
+  }
+}
+
 export function installSkillLibrary(
   host: HostConfig,
   skills: SkillManifestEntry[],
@@ -64,6 +80,7 @@ export function installSkillLibrary(
       `Missing skills directory at ${srcSkills}. Run setup from the repository root.`,
     );
   }
+  assertSkillSources(opts.repoRoot, skills);
   const destSkills = join(installRoot, "skills");
   linkOrCopySkills(srcSkills, destSkills, useCopies);
 

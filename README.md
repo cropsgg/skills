@@ -68,7 +68,7 @@ For setup/source code, see [`bin/`](bin/), [`src/`](src/), and [`docs/HOST_REFER
 ### Personal Install (Recommended)
 
 ```bash
-git clone --single-branch --depth 1 https://github.com/YOURNAME/ai-skills-library.git ~/.ai-skills && cd ~/.ai-skills && ./setup
+git clone --single-branch --depth 1 https://github.com/cropsgg/skills.git ~/.ai-skills && cd ~/.ai-skills && ./setup
 ```
 
 This installs into your user profile so skills apply across projects (not only the current repo).

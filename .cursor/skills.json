@@ -76,7 +76,7 @@
   "library": {
     "name": "AI Skills for Production Engineering",
     "version": "1.0.0",
-    "repository": "https://github.com/YOURNAME/ai-skills-library",
-    "setupCommand": "git clone --single-branch --depth 1 https://github.com/YOURNAME/ai-skills-library.git ~/.ai-skills && cd ~/.ai-skills && ./setup"
+    "repository": "https://github.com/cropsgg/skills",
+    "setupCommand": "git clone --single-branch --depth 1 https://github.com/cropsgg/skills.git ~/.ai-skills && cd ~/.ai-skills && ./setup"
   }
 }

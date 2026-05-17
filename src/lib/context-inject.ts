@@ -15,7 +15,7 @@ function skillCommandName(base: string, prefix: boolean): string {
 }
 
 function buildMarkdownSection(
-  skills: { name: string; description: string }[],
+  skills: { name: string; description: string; file: string }[],
   prefix: boolean,
 ): string {
   const lines = [
@@ -23,12 +23,14 @@ function buildMarkdownSection(
     "",
     "Use these skills for production engineering work in this environment.",
     "",
+    "When a slash command is invoked, read the matching `SKILL.md` file below and follow it before acting.",
+    "",
     "Slash commands:",
     "",
   ];
   for (const s of skills) {
     const n = skillCommandName(s.name, prefix);
-    lines.push(`- \`/${n}\` — ${s.description}`);
+    lines.push(`- \`/${n}\` — ${s.description} File: \`${s.file}\``);
   }
   const sa = skillCommandName("self-audit", prefix);
   const rc = skillCommandName("regression-check", prefix);
@@ -67,7 +69,7 @@ export function injectContext(
     }
     const base = stripLegacySection(existing);
     const section = buildMarkdownSection(skills, prefix);
-    const spacer = base.length && !base.endsWith("\n\n") ? "\n\n" : "\n";
+    const spacer = base.length ? (base.endsWith("\n\n") ? "" : "\n\n") : "";
     const out = `${base}${spacer}${section}\n`;
     writeFileSync(contextPath, out, "utf8");
     return;
@@ -86,9 +88,15 @@ export function injectContext(
       file: s.file,
       ...(s.tags ? { tags: s.tags } : {}),
     }));
+    const managedNames = new Set<string>();
+    for (const s of skills) {
+      managedNames.add(skillCommandName(s.name, false));
+      managedNames.add(skillCommandName(s.name, true));
+    }
+    const existingSkills = Array.isArray(data.skills) ? data.skills : [];
     const merged = new Map<string, (typeof nextSkills)[0]>();
-    for (const e of (data.skills as typeof nextSkills | undefined) ?? []) {
-      if (e?.name) merged.set(e.name, e);
+    for (const e of existingSkills as typeof nextSkills) {
+      if (e?.name && !managedNames.has(e.name)) merged.set(e.name, e);
     }
     for (const e of nextSkills) merged.set(e.name, e);
     data.skills = [...merged.values()];
@@ -113,7 +121,7 @@ export function injectContext(
         return `  - name: ${n}\n    description: ${JSON.stringify(s.description)}`;
       }),
     ];
-    const spacer = base.length && !base.endsWith("\n\n") ? "\n\n" : "\n";
+    const spacer = base.length ? (base.endsWith("\n\n") ? "" : "\n\n") : "";
     writeFileSync(contextPath, `${base}${spacer}${lines.join("\n")}\n`, "utf8");
   }
 }

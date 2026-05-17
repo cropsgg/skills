@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { HOSTS, detectInstalledHosts, getHostByFlag } from "../src/hosts/index.ts";
+import { detectInstalledHosts, getHostByFlag, type HostConfig } from "../src/hosts/index.ts";
 import { installSkillLibrary } from "../src/lib/install.ts";
 import { LIBRARY_SKILLS } from "../src/skills/manifest.ts";
 
@@ -31,19 +31,28 @@ function parseArgs(argv: string[]): Args {
     else if (a === "--auto-upgrade") out.autoUpgrade = true;
     else if (a === "--host") {
       const v = argv[++i];
-      if (!v || v.startsWith("--")) {
+      const host = v?.trim().toLowerCase();
+      if (!host || v.startsWith("--")) {
         console.error("error: --host requires a value (see docs/HOST_REFERENCE.md)");
         process.exit(1);
       }
-      out.host = v;
+      out.host = host;
     }
     else if (a.startsWith("--host=")) {
-      const v = a.slice("--host=".length);
-      if (!v) {
+      const host = a.slice("--host=".length).trim().toLowerCase();
+      if (!host) {
         console.error("error: --host= requires a value (see docs/HOST_REFERENCE.md)");
         process.exit(1);
       }
-      out.host = v;
+      out.host = host;
+    }
+    else if (a === "--") {
+      continue;
+    }
+    else {
+      console.error(`error: unknown option ${a}`);
+      printUsage();
+      process.exit(1);
     }
   }
   return out;
@@ -69,7 +78,7 @@ export function main(argv: string[]): void {
     process.exit(0);
   }
 
-  let targets = HOSTS;
+  let targets: HostConfig[] = [];
   if (args.host) {
     const h = getHostByFlag(args.host);
     if (!h) {
@@ -78,8 +87,7 @@ export function main(argv: string[]): void {
     }
     targets = [h];
   } else {
-    const detected = detectInstalledHosts();
-    if (detected.length) targets = detected;
+    targets = detectInstalledHosts();
   }
 
   if (!targets.length) {
