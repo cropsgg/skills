@@ -1,0 +1,82 @@
+{
+  "skills": [
+    {
+      "name": "self-audit",
+      "description": "Audit the agent's own session changes for bugs, runtime errors, spec drift, and incomplete features.",
+      "file": "skills/engineering/self-audit/SKILL.md",
+      "tags": ["engineering", "quality", "audit"]
+    },
+    {
+      "name": "security-audit",
+      "description": "Run OWASP-aligned security review: static analysis, insecure defaults, variant analysis, and differential review.",
+      "file": "skills/engineering/security-audit/SKILL.md",
+      "tags": ["engineering", "security", "audit"]
+    },
+    {
+      "name": "performance-optimization",
+      "description": "Profile and optimize latency, render cost, bundles, and data access patterns with measurable baselines.",
+      "file": "skills/engineering/performance-optimization/SKILL.md",
+      "tags": ["engineering", "performance"]
+    },
+    {
+      "name": "regression-check",
+      "description": "Run and interpret tests to catch unintended side effects before merge or release.",
+      "file": "skills/engineering/regression-check/SKILL.md",
+      "tags": ["engineering", "quality", "testing"]
+    },
+    {
+      "name": "accessibility-audit",
+      "description": "Evaluate UI changes for WCAG 2.1 AA risks using automated checks plus manual assistive-tech verification.",
+      "file": "skills/engineering/accessibility-audit/SKILL.md",
+      "tags": ["engineering", "accessibility"]
+    },
+    {
+      "name": "api-contract-validate",
+      "description": "Align implementations with OpenAPI/schemas and strict typing to prevent silent contract drift.",
+      "file": "skills/engineering/api-contract-validate/SKILL.md",
+      "tags": ["engineering", "api"]
+    },
+    {
+      "name": "error-resilience-review",
+      "description": "Review failure modes, retries, timeouts, idempotency, and graceful degradation paths.",
+      "file": "skills/engineering/error-resilience-review/SKILL.md",
+      "tags": ["engineering", "reliability"]
+    },
+    {
+      "name": "dependency-audit",
+      "description": "Assess dependency upgrades, transitive risk, and vulnerability posture using standard audit tooling.",
+      "file": "skills/engineering/dependency-audit/SKILL.md",
+      "tags": ["engineering", "supply-chain"]
+    },
+    {
+      "name": "database-review",
+      "description": "Review migrations, schema safety, transactional boundaries, indexes, and query health.",
+      "file": "skills/engineering/database-review/SKILL.md",
+      "tags": ["engineering", "data"]
+    },
+    {
+      "name": "docs-sync",
+      "description": "Align documentation, ADRs, and runbooks with implemented behavior to reduce knowledge decay.",
+      "file": "skills/planning/docs-sync/SKILL.md",
+      "tags": ["planning", "documentation"]
+    },
+    {
+      "name": "rollback-plan",
+      "description": "Define rollback, blast-radius limits, and verification for high-risk releases and migrations.",
+      "file": "skills/planning/rollback-plan/SKILL.md",
+      "tags": ["planning", "release"]
+    },
+    {
+      "name": "observability-setup",
+      "description": "Define traces, metrics, logs, and query patterns following OpenTelemetry-oriented standards.",
+      "file": "skills/productivity/observability-setup/SKILL.md",
+      "tags": ["productivity", "operations"]
+    }
+  ],
+  "library": {
+    "name": "AI Skills for Production Engineering",
+    "version": "1.0.0",
+    "repository": "https://github.com/YOURNAME/ai-skills-library",
+    "setupCommand": "git clone --single-branch --depth 1 https://github.com/YOURNAME/ai-skills-library.git ~/.ai-skills && cd ~/.ai-skills && ./setup"
+  }
+}

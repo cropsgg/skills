@@ -1,0 +1,26 @@
+{
+  "name": "ai-skills-library",
+  "version": "1.0.0",
+  "description": "Research-backed agent skills for production engineering",
+  "type": "module",
+  "bin": {
+    "ai-skills-setup": "./bin/setup.ts",
+    "ai-skills-team-init": "./bin/team-init.ts"
+  },
+  "scripts": {
+    "build": "bun build bin/setup.ts --outdir dist",
+    "setup": "bun run bin/setup.ts",
+    "team-init": "bun run bin/team-init.ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/bun": "^1.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "bun": ">=1.0.0"
+  },
+  "license": "MIT"
+}
