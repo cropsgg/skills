@@ -77,7 +77,7 @@ Supported `--host` targets and install locations:
 
 | `--host` | Install path |
 |----------|----------------|
-| `claude` | `~/.claude/skills/ai-skills/` |
+| `claude` | `~/.claude/ai-skills-library/` + `~/.claude/skills/<command>/` |
 | `codex` | `~/.codex/skills/ai-skills/` |
 | `cursor` | `~/.cursor/skills/ai-skills/` |
 | `opencode` | `~/.config/opencode/skills/ai-skills/` |
@@ -114,6 +114,7 @@ Use this when a team wants **vendored**, reviewable skill revisions committed al
 
 ### Troubleshooting
 
+- **Claude Code: `No commands match "/self-audit"`** — Commands come from folders directly under `~/.claude/skills/<name>/`. Library files are under `~/.claude/ai-skills-library/`. Re-run `./setup --host claude` so both are created; then try `/skills` in the CLI.
 - **Skills not showing** — Confirm the host’s install path exists, restart the agent session, and open the injected context section **AI Skills Library** (or merged JSON manifest) to confirm slash commands are listed.
 - **Stale tree** — Re-run `./setup` or `./setup --auto-upgrade` (reinstall from current checkout).
 - **Windows** — Prefer WSL or expect **file copies** instead of symlinks; re-run setup after `git pull` so copies refresh. See [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md).

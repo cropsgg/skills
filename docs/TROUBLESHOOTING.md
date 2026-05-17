@@ -4,6 +4,10 @@
 
 1. **Confirm the install path** for your host using [HOST_REFERENCE.md](HOST_REFERENCE.md).
 2. **List files** — you should see `skills/engineering/.../SKILL.md` under the install root (or a symlink to this repository’s `skills/` tree).
+
+### Claude Code: `No commands match "/…"`
+
+Claude Code turns each **immediate** folder under `~/.claude/skills/<name>/` (with a `SKILL.md` inside) into `/name`. Library files live under `~/.claude/ai-skills-library/skills/...`; do not nest only there without the top-level `~/.claude/skills/<name>/` links. Re-run `./setup --host claude` from this repo’s latest checkout. First run migrates an old `~/.claude/skills/ai-skills/` bundle aside. Then run `/skills` in Claude Code to confirm they appear.
 3. **Restart the agent session** — many tools cache instructions only at startup.
 4. **Open the context file** listed in the matrix — verify a `## AI Skills Library` section exists (Markdown) or that JSON contains merged `skills` entries.
 5. **Re-run** `./setup --host <flag>` from your checkout; the installer is idempotent.
@@ -24,7 +28,7 @@ The injector **updates** structured manifests by merge and **replaces** the boun
 
 ## Duplicate skills or slash commands
 
-Each host uses an **isolated install prefix** (`~/.…/skills/ai-skills/`). Collisions occur only if:
+Each host uses an **isolated install prefix** for file payloads (see [HOST_REFERENCE.md](HOST_REFERENCE.md); Claude uses `~/.claude/ai-skills-library/` plus command links under `~/.claude/skills/`). Collisions occur only if:
 
 - the same skill name is registered twice **inside one manifest** (merge bug—file an issue), or
 - two hosts both point at the same directory (misconfiguration—avoid).

@@ -1,4 +1,4 @@
-import { mkdirSync, writeFileSync, existsSync, rmSync } from "node:fs";
+import { mkdirSync, writeFileSync, lstatSync, rmSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { homedir } from "node:os";
 import type { HostConfig } from "../hosts/types.ts";
@@ -36,8 +36,12 @@ export function clearAutoUpdateHook(host: HostConfig): void {
   if (!host.sessionHookPath) return;
   const hookPath = expandHome(host.sessionHookPath, homedir());
   try {
-    if (existsSync(hookPath)) rmSync(hookPath);
-  } catch {
-    /* ignore */
+    lstatSync(hookPath);
+    rmSync(hookPath, { force: true });
+  } catch (e) {
+    const err = e as NodeJS.ErrnoException;
+    if (err.code !== "ENOENT") {
+      /* non-fatal */
+    }
   }
 }

@@ -4,7 +4,7 @@ Supported hosts, install locations, context files, and loader behavior. Paths us
 
 | Host | Flag | Install path | Context file | Skill loader | Auto-update hook | Since |
 |------|------|--------------|--------------|--------------|------------------|-------|
-| Claude Code | `claude` | `~/.claude/skills/ai-skills/` | `~/.claude/CLAUDE.md` | directory-scan | yes | 1.0.0 |
+| Claude Code | `claude` | `~/.claude/ai-skills-library/` (files); `/command` roots at `~/.claude/skills/<command>/` | `~/.claude/CLAUDE.md` | directory-scan | yes | 1.0.0 |
 | Codex CLI | `codex` | `~/.codex/skills/ai-skills/` | `~/.codex/CODEX.md` | directory-scan | yes | 1.0.0 |
 | Cursor | `cursor` | `~/.cursor/skills/ai-skills/` | `~/.cursor/skills.json` | skills-json | no | 1.0.0 |
 | OpenCode | `opencode` | `~/.config/opencode/skills/ai-skills/` | `~/.config/opencode/AGENTS.md` | manifest-json | no | 1.0.0 |
@@ -15,7 +15,7 @@ Supported hosts, install locations, context files, and loader behavior. Paths us
 
 ## Loader meanings
 
-- **directory-scan:** Agent discovers `SKILL.md` files under the install tree; the installer links or copies the `skills/` subtree.
+- **directory-scan:** Agent discovers `SKILL.md` files under the install tree; the installer links or copies the `skills/` subtree. **Claude Code:** the canonical repo tree is kept under `~/.claude/ai-skills-library/skills/...` (not under `~/.claude/skills/`, matching gstack-style layouts). The installer adds one symlink or copy per slash command under `~/.claude/skills/<command>/` because Claude Code only registers `/command` for immediate children of `~/.claude/skills/`.
 - **skills-json:** Installer merges skill metadata into a JSON manifest (array under `skills` or host-specific shape) without duplicating entries.
 - **manifest-json:** Installer writes `skills-manifest.json` under the install root with absolute paths to each `SKILL.md`.
 

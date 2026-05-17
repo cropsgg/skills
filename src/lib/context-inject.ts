@@ -10,7 +10,8 @@ export function expandHome(pathWithTilde: string, home: string): string {
   return pathWithTilde;
 }
 
-function skillCommandName(base: string, prefix: boolean): string {
+/** Slash command / folder basename for a skill (used by Claude Code discovery). */
+export function skillCommandName(base: string, prefix: boolean): string {
   return prefix ? `ai-${base}` : base;
 }
 

@@ -1,5 +1,14 @@
 #!/usr/bin/env bun
-import { readFileSync, writeFileSync, existsSync, appendFileSync, symlinkSync } from "node:fs";
+import {
+  appendFileSync,
+  existsSync,
+  lstatSync,
+  readFileSync,
+  realpathSync,
+  symlinkSync,
+  unlinkSync,
+  writeFileSync,
+} from "node:fs";
 import { join } from "node:path";
 import { homedir } from "node:os";
 import { execSync, execFileSync } from "node:child_process";
@@ -62,16 +71,40 @@ export function main(argv: string[]): void {
   }
 
   try {
-    if (existsSync(linkName)) {
-      /* keep existing */
-    } else if (process.platform === "win32") {
+    if (process.platform === "win32") {
       writeFileSync(
         join(cwd, ".ai-skills-path.txt"),
         `${globalLib}\n`,
         "utf8",
       );
     } else {
-      symlinkSync(globalLib, linkName, "dir");
+      let destStat: ReturnType<typeof lstatSync> | undefined;
+      try {
+        destStat = lstatSync(linkName);
+      } catch (e) {
+        const err = e as NodeJS.ErrnoException;
+        if (err.code !== "ENOENT") {
+          throw e;
+        }
+      }
+
+      if (!destStat) {
+        symlinkSync(globalLib, linkName, "dir");
+      } else if (destStat.isSymbolicLink()) {
+        try {
+          if (realpathSync(linkName) !== realpathSync(globalLib)) {
+            unlinkSync(linkName);
+            symlinkSync(globalLib, linkName, "dir");
+          }
+        } catch {
+          try {
+            unlinkSync(linkName);
+          } catch {
+            /* ignore */
+          }
+          symlinkSync(globalLib, linkName, "dir");
+        }
+      }
     }
   } catch (e) {
     if (mode === "required") {
