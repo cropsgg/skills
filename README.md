@@ -1,6 +1,6 @@
 # AI Skills for Production Engineering
 
-**Research-backed agent skills that close the gap between prototype and production.**
+**These are Research backed agent skills that close the gap between prototype and production.**
 
 This library complements widely used public skill collections (for example, Matt Pocock’s) by concentrating on lifecycle gaps that routinely separate demos from systems you can run under load, audit, and operate: **self-audit**, **security**, **performance**, **regression**, **accessibility**, and **operational resilience**. The skills are written so they can be composed: small, repeatable procedures with explicit evidence requirements rather than open-ended brainstorming.
 
