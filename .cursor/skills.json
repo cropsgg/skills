@@ -205,6 +205,12 @@
       "tags": ["productivity", "workflow", "context"]
     },
     {
+      "name": "skills-doctor",
+      "description": "Diagnose and fix: agent setup, toolchain, app smoke, deep debug — apply fixes in-session when evidenced.",
+      "file": "skills/productivity/skills-doctor/SKILL.md",
+      "tags": ["productivity", "debugging", "dx"]
+    },
+    {
       "name": "pre-commit-setup",
       "description": "Scaffold Husky pre-commit hooks with lint-staged, format, typecheck, and tests.",
       "file": "skills/productivity/pre-commit-setup/SKILL.md",
@@ -213,7 +219,7 @@
   ],
   "library": {
     "name": "AI Skills for Production Engineering",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "repository": "https://github.com/cropsgg/skills",
     "setupCommand": "git clone --single-branch --depth 1 https://github.com/cropsgg/skills.git ~/.ai-skills && cd ~/.ai-skills && ./setup",
     "commandCodeSetup": "cmd skills add cropsgg/skills --global"

@@ -73,7 +73,7 @@ From any shell:
 cmd skills list
 ```
 
-Expect **35 skills** in the Global or Project section (engineering, planning, and productivity skills from this repo).
+Expect **36 skills** in the Global or Project section (engineering, planning, and productivity skills from this repo).
 
 In an interactive session:
 
@@ -111,7 +111,7 @@ for dir in skills/*/*/; do
   name="$(basename "$dir")"
   ln -sf "$(pwd)/$dir" "$HOME/.commandcode/skills/$name"
 done
-cmd skills list   # expect 35 skills
+cmd skills list   # expect 36 skills
 ```
 
 To refresh one skill after edits:

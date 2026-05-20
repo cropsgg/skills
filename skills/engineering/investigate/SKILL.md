@@ -11,7 +11,7 @@ description: "Systematic root-cause debugging with evidence before any fix is ap
 - When behavior changed without an obvious code diff (config, dependency, data drift, cache).
 - When performance regressed and profiling data is missing or contradictory.
 
-Related: `/regression-check` after a fix is identified; `/self-audit` for session-authored changes without a runtime repro.
+Related: `/regression-check` after a fix is identified; `/self-audit` for session-authored changes without a runtime repro; `/skills-doctor` for setup, toolchain, and initial evidence before root cause is proven.
 
 Do not use this skill for greenfield feature design or pre-merge diff review without a failing behavior to explain.
 

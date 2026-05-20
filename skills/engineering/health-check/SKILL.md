@@ -10,7 +10,7 @@ description: "Composite code quality score from linter, types, tests, and option
 - When the user asks "how healthy is the codebase?" or "run all checks."
 - Before `/retro` to attach metrics to trends.
 
-Related: `/regression-check` for deep test interpretation; `/dependency-audit` for supply chain.
+Related: `/regression-check` for deep test interpretation; `/dependency-audit` for supply chain; `/skills-doctor` for incident-driven "won't run" triage and deep debug (not baseline scoring).
 
 Do not use this skill for security review or production monitoring substitution.
 

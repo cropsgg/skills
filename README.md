@@ -124,7 +124,7 @@ Use this when a team wants **vendored**, reviewable skill revisions committed al
 2. **`/security-audit`** — Expect findings mapped to trust boundaries plus verification commands. **Fail** if there is no OWASP-oriented checklist or no concrete file references on a non-trivial diff.
 3. **`/regression-check`** — Expect a test matrix, commands run, and interpreted failures. **Fail** if no tests are invoked when a test runner exists in-repo.
 
-**Command Code:** run `cmd skills list` (expect 35 skills) and `/skills` in a `cmd` session. Details in [docs/COMMAND_CODE.md](docs/COMMAND_CODE.md).
+**Command Code:** run `cmd skills list` (expect 36 skills) and `/skills` in a `cmd` session. Details in [docs/COMMAND_CODE.md](docs/COMMAND_CODE.md).
 
 ### Troubleshooting
 
@@ -152,7 +152,7 @@ These skills were exercised like internal engineering playbooks: against realist
 
 ## Skill inventory
 
-Lifecycle: **plan** (`/office-hours`, `/requirements-grill`, `/plan-ceo-review`, `/plan-eng-review`, `/to-prd`, `/to-issues`) → **build** (`/tdd`, `/domain-context`) → **verify** (`/self-audit`, `/regression-check`, `/qa-report`, `/design-review`) → **review** (`/pr-review`, `/security-audit`) → **ship** (`/ship`) → **operate** (`/incident-postmortem`, `/retro`, `/health-check`).
+Lifecycle: **plan** (`/office-hours`, `/requirements-grill`, `/plan-ceo-review`, `/plan-eng-review`, `/to-prd`, `/to-issues`) → **build** (`/tdd`, `/domain-context`) → **verify** (`/self-audit`, `/regression-check`, `/qa-report`, `/design-review`) → **review** (`/pr-review`, `/security-audit`) → **ship** (`/ship`) → **operate** (`/incident-postmortem`, `/retro`, `/health-check`). **Troubleshoot:** `/skills-doctor` → `/investigate`.
 
 ### Engineering
 
@@ -203,6 +203,7 @@ Lifecycle: **plan** (`/office-hours`, `/requirements-grill`, `/plan-ceo-review`,
 | `/guard-mode` | Prod debugging; destructive-command warnings; optional edit freeze. |
 | `/session-handoff` | Save state for another session or agent. |
 | `/pre-commit-setup` | Scaffold Husky + lint-staged commit gates. |
+| `/skills-doctor` | Diagnose and fix setup, toolchain, and app issues in-session; escalate to `/investigate` when cause stays ambiguous. |
 
 ### Manual install (without the setup script)
 
@@ -221,6 +222,7 @@ These skills are **composable**, not universal mandates:
 - **Review:** `/pr-review` and `/security-audit` before merge
 - **Ship:** `/ship` when ready for PR
 - **Operate:** `/health-check` weekly; `/retro` end of sprint; `/incident-postmortem` after outages
+- **Troubleshoot:** `/skills-doctor` when something breaks (setup, toolchain, or a specific error); `/investigate` for application logic root cause after evidence is collected
 
 Match skill depth to **risk tier**:
 

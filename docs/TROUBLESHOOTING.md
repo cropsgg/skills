@@ -1,5 +1,11 @@
 # Troubleshooting
 
+## Run `/skills-doctor` first
+
+When skills do not load, the agent ignores instructions, or the app will not start, invoke **`/skills-doctor`** before manual digging. It runs **Phase 1 triage** — agent setup (skills paths, hooks, MCP), toolchain (runtime, `.env` keys, ports), and app smoke (typecheck/tests) with an OK/WARN/FAIL table — then **Phase 2 deep debug** (evidence bundle, hypotheses, safe fixes) when the symptom is still unexplained.
+
+For setup, toolchain, and app failures — including a specific error — use **`/skills-doctor`**. For confirmed application logic defects after evidence is collected, use **`/investigate`**.
+
 ## Skills do not appear in the agent
 
 1. **Confirm the install path** for your host using [HOST_REFERENCE.md](HOST_REFERENCE.md).
