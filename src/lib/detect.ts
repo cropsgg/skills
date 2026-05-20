@@ -36,6 +36,9 @@ export function detectInstalledHosts(hosts: HostConfig[]): HostConfig[] {
       case "codex":
         ok = commandExists("codex") || existsSync(homePath(".codex"));
         break;
+      case "commandcode":
+        ok = commandExists("command-code") || existsSync(homePath(".commandcode"));
+        break;
       case "opencode":
         ok = existsSync(homePath(".config/opencode"));
         break;

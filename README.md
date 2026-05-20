@@ -79,6 +79,7 @@ Supported `--host` targets and install locations:
 |----------|----------------|
 | `claude` | `~/.claude/ai-skills-library/` + `~/.claude/skills/<command>/` |
 | `codex` | `~/.codex/skills/ai-skills/` |
+| `commandcode` | `~/.commandcode/skills/ai-skills/` |
 | `cursor` | `~/.cursor/skills/ai-skills/` |
 | `opencode` | `~/.config/opencode/skills/ai-skills/` |
 | `factory` | `~/.factory/skills/ai-skills/` |

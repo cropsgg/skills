@@ -1,5 +1,6 @@
 import { claudeHost } from "./claude.ts";
 import { codexHost } from "./codex.ts";
+import { commandcodeHost } from "./commandcode.ts";
 import { cursorHost } from "./cursor.ts";
 import { opencodeHost } from "./opencode.ts";
 import { factoryHost } from "./factory.ts";
@@ -12,6 +13,7 @@ import { detectInstalledHosts as detectHosts } from "../lib/detect.ts";
 export const HOSTS: HostConfig[] = [
   claudeHost,
   codexHost,
+  commandcodeHost,
   cursorHost,
   opencodeHost,
   factoryHost,
