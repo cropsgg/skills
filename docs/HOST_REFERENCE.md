@@ -13,6 +13,9 @@ Supported hosts, install locations, context files, and loader behavior. Paths us
 | Kiro | `kiro` | `~/.kiro/skills/ai-skills/` | `~/.kiro/KIRO.md` | directory-scan | yes | 1.0.0 |
 | Hermes | `hermes` | `~/.hermes/skills/ai-skills/` | `~/.hermes/HERMES.md` | directory-scan | yes | 1.0.0 |
 | GBrain | `gbrain` | `~/.gbrain/skills/ai-skills/` | `~/.gbrain/GBRAIN.md` | directory-scan | yes | 1.0.0 |
+| Command Code | *(native)* | `~/.commandcode/skills/<skill>/` (global) or `.commandcode/skills/<skill>/` (project) | *(skills only; no context inject)* | directory-scan | no | 1.0.0 |
+
+**Command Code** is not installed via `./setup --host`. Use `cmd skills add cropsgg/skills --global` (see [COMMAND_CODE.md](COMMAND_CODE.md)).
 
 ## Loader meanings
 
@@ -37,5 +40,6 @@ Hosts without hook support still benefit from `./setup --team` for documentation
 
 ## Related docs
 
+- [COMMAND_CODE.md](COMMAND_CODE.md) — install and verify skills with `cmd skills add`.
 - [ADDING_A_HOST.md](ADDING_A_HOST.md) — contribute a new row to this matrix.
 - [TROUBLESHOOTING.md](TROUBLESHOOTING.md) — fix install and detection issues.

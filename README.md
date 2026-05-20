@@ -89,6 +89,17 @@ Supported `--host` targets and install locations:
 
 Example: `./setup --host cursor` installs only for that host. Omit `--host` to auto-detect installed agents on `PATH` and in common config directories.
 
+### Command Code
+
+[Command Code](https://commandcode.ai/) uses its own skills CLI — not `./setup`. After [installing and logging in](https://commandcode.ai/docs/quickstart):
+
+```bash
+cmd skills add cropsgg/skills --global
+cmd skills list
+```
+
+Then in a session: `cmd` → `/skills` or `/self-audit`. Full steps, local-dev symlinks, and troubleshooting: [docs/COMMAND_CODE.md](docs/COMMAND_CODE.md).
+
 **Requirements:** the Bun JavaScript runtime (1.x or newer) to execute `bin/*.ts`, or invoke the same files with another compatible runner.
 
 ### Team Mode — Auto-Update for Shared Repos
@@ -113,11 +124,14 @@ Use this when a team wants **vendored**, reviewable skill revisions committed al
 2. **`/security-audit`** — Expect findings mapped to trust boundaries plus verification commands. **Fail** if there is no OWASP-oriented checklist or no concrete file references on a non-trivial diff.
 3. **`/regression-check`** — Expect a test matrix, commands run, and interpreted failures. **Fail** if no tests are invoked when a test runner exists in-repo.
 
+**Command Code:** run `cmd skills list` (expect 13 skills) and `/skills` in a `cmd` session. Details in [docs/COMMAND_CODE.md](docs/COMMAND_CODE.md).
+
 ### Troubleshooting
 
 - **Claude Code: `No commands match "/self-audit"`** — Commands come from folders directly under `~/.claude/skills/<name>/`. Library files are under `~/.claude/ai-skills-library/`. Re-run `./setup --host claude` so both are created; then try `/skills` in the CLI.
+- **Command Code: skills missing** — Run `cmd skills list`; reinstall with `cmd skills add cropsgg/skills --global --force`. See [docs/COMMAND_CODE.md](docs/COMMAND_CODE.md).
 - **Skills not showing** — Confirm the host’s install path exists, restart the agent session, and open the injected context section **AI Skills Library** (or merged JSON manifest) to confirm slash commands are listed.
-- **Stale tree** — Re-run `./setup` or `./setup --auto-upgrade` (reinstall from current checkout).
+- **Stale tree** — Re-run `./setup` or `./setup --auto-upgrade` (reinstall from current checkout). For Command Code: `cmd skills add cropsgg/skills --global --force`.
 - **Windows** — Prefer WSL or expect **file copies** instead of symlinks; re-run setup after `git pull` so copies refresh. See [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md).
 
 ---
@@ -185,7 +199,7 @@ Match skill depth to **risk tier**:
 - Root `setup` and `team-init` shell wrappers (delegate to `bin/*.ts` via Bun).
 - `bin/` — TypeScript CLI sources (`setup.ts`, `team-init.ts`).
 - `src/` — host registry, detection, install/copy, context injection, optional hooks.
-- `docs/` — host matrix, onboarding for new hosts, troubleshooting.
+- `docs/` — host matrix, [Command Code](docs/COMMAND_CODE.md), onboarding for new hosts, troubleshooting.
 
 ---
 

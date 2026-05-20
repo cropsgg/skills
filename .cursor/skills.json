@@ -83,6 +83,7 @@
     "name": "AI Skills for Production Engineering",
     "version": "1.0.0",
     "repository": "https://github.com/cropsgg/skills",
-    "setupCommand": "git clone --single-branch --depth 1 https://github.com/cropsgg/skills.git ~/.ai-skills && cd ~/.ai-skills && ./setup"
+    "setupCommand": "git clone --single-branch --depth 1 https://github.com/cropsgg/skills.git ~/.ai-skills && cd ~/.ai-skills && ./setup",
+    "commandCodeSetup": "cmd skills add cropsgg/skills --global"
   }
 }

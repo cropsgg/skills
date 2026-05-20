@@ -8,9 +8,17 @@
 ### Claude Code: `No commands match "/…"`
 
 Claude Code turns each **immediate** folder under `~/.claude/skills/<name>/` (with a `SKILL.md` inside) into `/name`. Library files live under `~/.claude/ai-skills-library/skills/...`; do not nest only there without the top-level `~/.claude/skills/<name>/` links. Re-run `./setup --host claude` from this repo’s latest checkout. First run migrates an old `~/.claude/skills/ai-skills/` bundle aside. Then run `/skills` in Claude Code to confirm they appear.
-3. **Restart the agent session** — many tools cache instructions only at startup.
-4. **Open the context file** listed in the matrix — verify a `## AI Skills Library` section exists (Markdown) or that JSON contains merged `skills` entries.
-5. **Re-run** `./setup --host <flag>` from your checkout; the installer is idempotent.
+
+### Command Code: skills not listed
+
+1. Run `cmd skills list` — if empty, install with `cmd skills add cropsgg/skills --global --force`.
+2. Confirm directories exist under `~/.commandcode/skills/<skill-name>/SKILL.md` (global) or `.commandcode/skills/` (project).
+3. In a session, type `/skills` — skills also appear in the `/` menu.
+4. If a skill is **shadowed** by a built-in or custom command, Command Code shows a `[skill]` badge; the built-in wins on `/name`. See [COMMAND_CODE.md](COMMAND_CODE.md).
+
+3. **Restart the agent session** — many tools cache instructions only at startup. *(Command Code reloads skills without restart after `cmd skills add`.)*
+4. **Open the context file** listed in the matrix — verify a `## AI Skills Library` section exists (Markdown) or that JSON contains merged `skills` entries. *(Command Code has no context inject; use `cmd skills list` instead.)*
+5. **Re-run** `./setup --host <flag>` from your checkout; the installer is idempotent. *(Command Code: `cmd skills add cropsgg/skills --global --force`.)*
 
 ## Stale skills after `git pull`
 
