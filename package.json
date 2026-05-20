@@ -1,6 +1,6 @@
 {
   "name": "ai-skills-library",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Research-backed agent skills for production engineering",
   "type": "module",
   "bin": {

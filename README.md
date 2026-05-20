@@ -124,7 +124,7 @@ Use this when a team wants **vendored**, reviewable skill revisions committed al
 2. **`/security-audit`** — Expect findings mapped to trust boundaries plus verification commands. **Fail** if there is no OWASP-oriented checklist or no concrete file references on a non-trivial diff.
 3. **`/regression-check`** — Expect a test matrix, commands run, and interpreted failures. **Fail** if no tests are invoked when a test runner exists in-repo.
 
-**Command Code:** run `cmd skills list` (expect 13 skills) and `/skills` in a `cmd` session. Details in [docs/COMMAND_CODE.md](docs/COMMAND_CODE.md).
+**Command Code:** run `cmd skills list` (expect 35 skills) and `/skills` in a `cmd` session. Details in [docs/COMMAND_CODE.md](docs/COMMAND_CODE.md).
 
 ### Troubleshooting
 
@@ -152,21 +152,57 @@ These skills were exercised like internal engineering playbooks: against realist
 
 ## Skill inventory
 
-| Skill | Category | When to Use | Research Backing |
-|------|----------|-------------|------------------|
-| `/self-audit` | Engineering / Verification | After substantive edits; before claiming “done”; when specs are implicit or shifting. | Self-reflection and verification literature (Renze & Guven, 2024; Dhuliawala et al., ACL 2024; Zhang et al., 2025; Li et al., ACL 2025; Ma et al., 2025). |
-| `/security-audit` | Engineering / Security | Before merging risky changes; when handling auth, data access, or user-controlled input; before exposing new endpoints. | Trail of Bits Security Skills Suite; OWASP Top 10 for Agentic AI (2025). |
-| `/performance-optimization` | Engineering / Performance | When latency, throughput, or bundle size regress; when data fetching patterns change; before scaling traffic. | Vercel React Performance Rules (57-rule framework); community performance-checker patterns. |
-| `/regression-check` | Engineering / Quality | Before commit/merge; after refactors touching shared modules; when CI is flaky or selectively skipped. | Evaluator–Optimizer patterns (OpenAI / Anthropic); community regression-checker skills. |
-| `/accessibility-audit` | Engineering / Accessibility | For new UI components, page layouts, or interactive flows; before release to regulated environments. | axe-core + jsx-a11y; W3C WAI-ARIA Authoring Practices. |
-| `/api-contract-validate` | Engineering / Interfaces | When OpenAPI/GraphQL/schemas change; when multiple clients consume an API; during version bumps. | API contract drift patterns (microservices industry practice); TypeScript strict mode + OpenAPI alignment practices. |
-| `/error-resilience-review` | Engineering / Reliability | For distributed calls, queues, and partial failures; before increasing timeout/retry complexity. | Agent under-specification of error handling (2024–2025 research theme); circuit breaker / retry / fallback standards (Netflix, AWS patterns). |
-| `/dependency-audit` | Engineering / Supply Chain | After dependency upgrades; when accepting transitive deps; during incident response for CVEs. | Snyk integration patterns; `npm audit` / `pip-audit` / `cargo audit` community tooling. |
-| `/database-review` | Engineering / Data | For migrations, backfills, indexing changes; when ORM queries are generated or refactored. | PlanetScale schema safety / migration / query patterns; schema drift and codegen integrity research themes. |
-| `/docs-sync` | Planning / Documentation | When behavior changes outpace README/ADR/runbooks; during onboarding friction reports. | Documentation-driven development; knowledge decay in software maintenance (maintenance research themes). |
-| `/rollback-plan` | Planning / Release Safety | Before risky deploys; when data migrations are irreversible without a plan; for high-blast-radius features. | Google SRE practices (2017); blue/green deployment and canary release research and industry practice. |
-| `/observability-setup` | Productivity / Operations | When production debugging is slow; before scaling a new service; when incidents lack traceability. | Honeycomb / OpenTelemetry observability standards; production debugging research theme: “you can’t debug what you can’t see.” |
-| `/btw` | Productivity / Workflow | Side questions during active work; repo/shell/web lookups without polluting main context; `@` path hints. | Claude Code `/btw` side-channel pattern; complementary isolated-worker design for tool-backed discovery. |
+Lifecycle: **plan** (`/office-hours`, `/requirements-grill`, `/plan-ceo-review`, `/plan-eng-review`, `/to-prd`, `/to-issues`) → **build** (`/tdd`, `/domain-context`) → **verify** (`/self-audit`, `/regression-check`, `/qa-report`, `/design-review`) → **review** (`/pr-review`, `/security-audit`) → **ship** (`/ship`) → **operate** (`/incident-postmortem`, `/retro`, `/health-check`).
+
+### Engineering
+
+| Skill | When to Use |
+|------|-------------|
+| `/self-audit` | After substantive edits; before claiming “done”; when specs are implicit or shifting. |
+| `/security-audit` | Before merging risky changes; auth, data access, user input, new endpoints. |
+| `/performance-optimization` | Latency, bundle size, or data-fetch regressions; before scaling traffic. |
+| `/regression-check` | Before commit/merge; after refactors; when CI was skipped or flaky. |
+| `/accessibility-audit` | New UI components, layouts, or flows; regulated releases. |
+| `/api-contract-validate` | OpenAPI/GraphQL/schema changes; multi-client APIs. |
+| `/error-resilience-review` | Distributed calls, retries, timeouts, idempotency. |
+| `/dependency-audit` | Dependency upgrades, CVE response, supply chain review. |
+| `/database-review` | Migrations, indexes, transactional boundaries, query health. |
+| `/investigate` | Production or CI bugs; root cause before fixing; after failed fix attempts. |
+| `/pr-review` | Pre-merge diff review; trust boundaries and side effects. |
+| `/ship` | Tests green, ready to push and open PR. |
+| `/tdd` | New behavior or bug fixes with red-green-refactor. |
+| `/qa-report` | Browser QA report-only before release. |
+| `/design-review` | Visual/UX audit of web UI. |
+| `/health-check` | Composite linter/types/tests quality score. |
+| `/triage` | Backlog hygiene, labels, priority, routing. |
+| `/architecture-improvement` | Coupling, god modules, boundary cleanup. |
+| `/zoom-out` | Onboarding; explain unfamiliar module or repo area. |
+
+### Planning
+
+| Skill | When to Use |
+|------|-------------|
+| `/docs-sync` | Docs/ADRs/runbooks drift from implemented behavior. |
+| `/rollback-plan` | High-risk deploys; irreversible migrations. |
+| `/requirements-grill` | Vague specs; align before coding. |
+| `/domain-context` | Build or refresh `CONTEXT.md` and ADRs. |
+| `/plan-eng-review` | Lock architecture, edge cases, tests before implementation. |
+| `/plan-ceo-review` | Rethink scope and wedge before build. |
+| `/office-hours` | Greenfield ideation with forcing questions. |
+| `/to-prd` | Capture conversation as PRD issue. |
+| `/to-issues` | Vertical-slice issue breakdown from PRD/plan. |
+| `/incident-postmortem` | After production incidents; blameless review. |
+| `/retro` | Weekly ship and quality retrospective. |
+
+### Productivity
+
+| Skill | When to Use |
+|------|-------------|
+| `/observability-setup` | Traces, metrics, logs for new or hard-to-debug services. |
+| `/btw` | Side-channel lookup without polluting main thread. |
+| `/guard-mode` | Prod debugging; destructive-command warnings; optional edit freeze. |
+| `/session-handoff` | Save state for another session or agent. |
+| `/pre-commit-setup` | Scaffold Husky + lint-staged commit gates. |
 
 ### Manual install (without the setup script)
 
@@ -179,9 +215,12 @@ These skills were exercised like internal engineering playbooks: against realist
 
 These skills are **composable**, not universal mandates:
 
-- Run **`/self-audit`** after every implementation chunk large enough to introduce regressions.
-- Run **`/regression-check`** before every commit when tests exist (and especially when they were “temporarily” ignored).
-- Run **`/security-audit`** before every pull request that touches trust boundaries, parsing, auth, storage, or dependencies.
+- **Plan:** `/office-hours` or `/requirements-grill` → `/plan-ceo-review` → `/plan-eng-review` → `/to-prd` → `/to-issues`
+- **Build:** `/tdd` for new behavior; `/domain-context` when jargon drifts
+- **Verify:** `/self-audit` after each chunk; `/regression-check` before commit; `/qa-report` or `/design-review` for UI
+- **Review:** `/pr-review` and `/security-audit` before merge
+- **Ship:** `/ship` when ready for PR
+- **Operate:** `/health-check` weekly; `/retro` end of sprint; `/incident-postmortem` after outages
 
 Match skill depth to **risk tier**:
 

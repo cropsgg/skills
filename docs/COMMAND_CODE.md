@@ -73,7 +73,7 @@ From any shell:
 cmd skills list
 ```
 
-Expect **13 skills** in the Global or Project section (engineering, planning, and productivity skills from this repo).
+Expect **35 skills** in the Global or Project section (engineering, planning, and productivity skills from this repo).
 
 In an interactive session:
 
@@ -103,14 +103,22 @@ Command Code also discovers `.agents/skills/` (user and project) for compatibili
 
 ## Local development (this checkout)
 
-When testing changes before pushing to GitHub, symlink or copy skill folders into Command Code’s global skills directory:
+When testing changes before pushing to GitHub, symlink skill folders into Command Code’s global skills directory:
 
 ```bash
 mkdir -p ~/.commandcode/skills
-ln -sf "$(pwd)/skills/engineering/self-audit" ~/.commandcode/skills/self-audit
+for dir in skills/*/*/; do
+  name="$(basename "$dir")"
+  ln -sf "$(pwd)/$dir" "$HOME/.commandcode/skills/$name"
+done
+cmd skills list   # expect 35 skills
 ```
 
-Repeat for each skill under `skills/engineering/`, `skills/planning/`, and `skills/productivity/`. The directory name must match the skill `name` in frontmatter (e.g. `self-audit`).
+To refresh one skill after edits:
+
+```bash
+ln -sf "$(pwd)/skills/engineering/self-audit" ~/.commandcode/skills/self-audit
+```
 
 After editing `SKILL.md`, save the file — Command Code picks up changes without reinstalling.
 

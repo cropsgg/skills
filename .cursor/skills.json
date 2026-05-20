@@ -55,6 +55,66 @@
       "tags": ["engineering", "data"]
     },
     {
+      "name": "investigate",
+      "description": "Systematic root-cause debugging with evidence before any fix is applied.",
+      "file": "skills/engineering/investigate/SKILL.md",
+      "tags": ["engineering", "debugging", "reliability"]
+    },
+    {
+      "name": "pr-review",
+      "description": "Pre-merge diff review for production risks: SQL safety, trust boundaries, and side effects.",
+      "file": "skills/engineering/pr-review/SKILL.md",
+      "tags": ["engineering", "quality", "review"]
+    },
+    {
+      "name": "ship",
+      "description": "Portable ship loop: sync base, test, review diff, commit, push, and open a PR.",
+      "file": "skills/engineering/ship/SKILL.md",
+      "tags": ["engineering", "release", "workflow"]
+    },
+    {
+      "name": "tdd",
+      "description": "Test-driven development with red-green-refactor loops on vertical slices.",
+      "file": "skills/engineering/tdd/SKILL.md",
+      "tags": ["engineering", "testing", "quality"]
+    },
+    {
+      "name": "qa-report",
+      "description": "Report-only browser QA with structured findings and repro steps — no code fixes.",
+      "file": "skills/engineering/qa-report/SKILL.md",
+      "tags": ["engineering", "qa", "testing"]
+    },
+    {
+      "name": "design-review",
+      "description": "Live visual and UX audit of web UI with evidence-backed findings.",
+      "file": "skills/engineering/design-review/SKILL.md",
+      "tags": ["engineering", "design", "ui"]
+    },
+    {
+      "name": "health-check",
+      "description": "Composite code quality score from linter, types, tests, and optional dead-code checks.",
+      "file": "skills/engineering/health-check/SKILL.md",
+      "tags": ["engineering", "quality", "metrics"]
+    },
+    {
+      "name": "triage",
+      "description": "Triage issues through labels, priority, and state with consistent hygiene.",
+      "file": "skills/engineering/triage/SKILL.md",
+      "tags": ["engineering", "workflow", "issues"]
+    },
+    {
+      "name": "architecture-improvement",
+      "description": "Find deepening opportunities and boundary fixes using domain language.",
+      "file": "skills/engineering/architecture-improvement/SKILL.md",
+      "tags": ["engineering", "architecture"]
+    },
+    {
+      "name": "zoom-out",
+      "description": "Explain unfamiliar code in system context — entry points, dependencies, and data flow.",
+      "file": "skills/engineering/zoom-out/SKILL.md",
+      "tags": ["engineering", "onboarding"]
+    },
+    {
       "name": "docs-sync",
       "description": "Align documentation, ADRs, and runbooks with implemented behavior to reduce knowledge decay.",
       "file": "skills/planning/docs-sync/SKILL.md",
@@ -67,6 +127,60 @@
       "tags": ["planning", "release"]
     },
     {
+      "name": "requirements-grill",
+      "description": "Relentless Q&A until every branch of the plan decision tree is resolved.",
+      "file": "skills/planning/requirements-grill/SKILL.md",
+      "tags": ["planning", "alignment"]
+    },
+    {
+      "name": "domain-context",
+      "description": "Build and maintain shared domain language in CONTEXT.md and ADRs.",
+      "file": "skills/planning/domain-context/SKILL.md",
+      "tags": ["planning", "documentation"]
+    },
+    {
+      "name": "plan-eng-review",
+      "description": "Lock architecture, data flow, edge cases, and test coverage before implementation.",
+      "file": "skills/planning/plan-eng-review/SKILL.md",
+      "tags": ["planning", "architecture"]
+    },
+    {
+      "name": "plan-ceo-review",
+      "description": "Rethink product scope: find the ambitious version without losing rigor.",
+      "file": "skills/planning/plan-ceo-review/SKILL.md",
+      "tags": ["planning", "product"]
+    },
+    {
+      "name": "office-hours",
+      "description": "Structured ideation with forcing questions before any code is written.",
+      "file": "skills/planning/office-hours/SKILL.md",
+      "tags": ["planning", "product"]
+    },
+    {
+      "name": "to-prd",
+      "description": "Synthesize conversation context into a PRD and file it as a GitHub issue.",
+      "file": "skills/planning/to-prd/SKILL.md",
+      "tags": ["planning", "spec"]
+    },
+    {
+      "name": "to-issues",
+      "description": "Break a plan or PRD into independently grabbable vertical-slice GitHub issues.",
+      "file": "skills/planning/to-issues/SKILL.md",
+      "tags": ["planning", "workflow"]
+    },
+    {
+      "name": "incident-postmortem",
+      "description": "Blameless postmortem with timeline, root cause, and actionable follow-ups.",
+      "file": "skills/planning/incident-postmortem/SKILL.md",
+      "tags": ["planning", "operations", "sre"]
+    },
+    {
+      "name": "retro",
+      "description": "Weekly engineering retrospective from git history and quality signals.",
+      "file": "skills/planning/retro/SKILL.md",
+      "tags": ["planning", "team"]
+    },
+    {
       "name": "observability-setup",
       "description": "Define traces, metrics, logs, and query patterns following OpenTelemetry-oriented standards.",
       "file": "skills/productivity/observability-setup/SKILL.md",
@@ -77,11 +191,29 @@
       "description": "Side-channel Q&A via background sub-agent. Investigate repo, shell, or web without polluting the main thread. Raw answer only.",
       "file": "skills/productivity/btw/SKILL.md",
       "tags": ["productivity", "workflow", "context"]
+    },
+    {
+      "name": "guard-mode",
+      "description": "Safety mode: warn on destructive commands and optionally restrict edits to one directory.",
+      "file": "skills/productivity/guard-mode/SKILL.md",
+      "tags": ["productivity", "safety"]
+    },
+    {
+      "name": "session-handoff",
+      "description": "Compact session state for another agent or future you to resume without context loss.",
+      "file": "skills/productivity/session-handoff/SKILL.md",
+      "tags": ["productivity", "workflow", "context"]
+    },
+    {
+      "name": "pre-commit-setup",
+      "description": "Scaffold Husky pre-commit hooks with lint-staged, format, typecheck, and tests.",
+      "file": "skills/productivity/pre-commit-setup/SKILL.md",
+      "tags": ["productivity", "quality", "dx"]
     }
   ],
   "library": {
     "name": "AI Skills for Production Engineering",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "repository": "https://github.com/cropsgg/skills",
     "setupCommand": "git clone --single-branch --depth 1 https://github.com/cropsgg/skills.git ~/.ai-skills && cd ~/.ai-skills && ./setup",
     "commandCodeSetup": "cmd skills add cropsgg/skills --global"
