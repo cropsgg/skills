@@ -6,6 +6,7 @@ Supported hosts, install locations, context files, and loader behavior. Paths us
 |------|------|--------------|--------------|--------------|------------------|-------|
 | Claude Code | `claude` | `~/.claude/ai-skills-library/` (files); `/command` roots at `~/.claude/skills/<command>/` | `~/.claude/CLAUDE.md` | directory-scan | yes | 1.0.0 |
 | Codex CLI | `codex` | `~/.codex/skills/ai-skills/` | `~/.codex/CODEX.md` | directory-scan | yes | 1.0.0 |
+| Command Code | `commandcode` | `~/.commandcode/skills/ai-skills/` | `~/.commandcode/AGENTS.md` | directory-scan | no | 1.0.0 |
 | Cursor | `cursor` | `~/.cursor/skills/ai-skills/` | `~/.cursor/skills.json` | skills-json | no | 1.0.0 |
 | OpenCode | `opencode` | `~/.config/opencode/skills/ai-skills/` | `~/.config/opencode/AGENTS.md` | manifest-json | no | 1.0.0 |
 | Factory Droid | `factory` | `~/.factory/skills/ai-skills/` | `~/.factory/FACTORY.md` | directory-scan | yes | 1.0.0 |

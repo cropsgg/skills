@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Command Code quick-start: installs the AI Skills Library for the commandcode host.
+# Command Code is a coding agent that continuously learns your coding taste via
+# its taste-1 meta neuro-symbolic AI model (https://commandcode.ai).
+# Skills are auto-discovered from ~/.commandcode/skills/<name>/SKILL.md.
+#
+# Usage: ./setup-commandcode [--prefix] [--auto-upgrade] [--help]
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+if ! command -v command-code &>/dev/null && [ ! -d "${HOME}/.commandcode" ]; then
+  echo "warning: Command Code not detected (no 'command-code' on PATH and no ~/.commandcode/)."
+  echo "  Install from https://commandcode.ai, then re-run ./setup-commandcode."
+  echo ""
+fi
+
+exec bun run "${ROOT}/bin/setup.ts" --host commandcode "$@"
