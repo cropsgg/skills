@@ -151,6 +151,7 @@ These skills were exercised like internal engineering playbooks: against realist
 | `/docs-sync` | Planning / Documentation | When behavior changes outpace README/ADR/runbooks; during onboarding friction reports. | Documentation-driven development; knowledge decay in software maintenance (maintenance research themes). |
 | `/rollback-plan` | Planning / Release Safety | Before risky deploys; when data migrations are irreversible without a plan; for high-blast-radius features. | Google SRE practices (2017); blue/green deployment and canary release research and industry practice. |
 | `/observability-setup` | Productivity / Operations | When production debugging is slow; before scaling a new service; when incidents lack traceability. | Honeycomb / OpenTelemetry observability standards; production debugging research theme: “you can’t debug what you can’t see.” |
+| `/btw` | Productivity / Workflow | Side questions during active work; repo/shell/web lookups without polluting main context; `@` path hints. | Claude Code `/btw` side-channel pattern; complementary isolated-worker design for tool-backed discovery. |
 
 ### Manual install (without the setup script)
 

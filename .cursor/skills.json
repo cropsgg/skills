@@ -71,6 +71,12 @@
       "description": "Define traces, metrics, logs, and query patterns following OpenTelemetry-oriented standards.",
       "file": "skills/productivity/observability-setup/SKILL.md",
       "tags": ["productivity", "operations"]
+    },
+    {
+      "name": "btw",
+      "description": "Side-channel Q&A via background sub-agent. Investigate repo, shell, or web without polluting the main thread. Raw answer only.",
+      "file": "skills/productivity/btw/SKILL.md",
+      "tags": ["productivity", "workflow", "context"]
     }
   ],
   "library": {
