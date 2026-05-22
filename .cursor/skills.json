@@ -215,6 +215,66 @@
       "description": "Scaffold Husky pre-commit hooks with lint-staged, format, typecheck, and tests.",
       "file": "skills/productivity/pre-commit-setup/SKILL.md",
       "tags": ["productivity", "quality", "dx"]
+    },
+    {
+      "name": "prototype",
+      "description": "Build a throwaway prototype to de-risk a design decision before committing to production code.",
+      "file": "skills/engineering/prototype/SKILL.md",
+      "tags": ["engineering", "design", "validation", "risk-reduction", "experimentation"]
+    },
+    {
+      "name": "simplifying-code",
+      "description": "Declutter code without changing behavior. Targets AI-generated slop and accumulated complexity.",
+      "file": "skills/engineering/simplifying-code/SKILL.md",
+      "tags": ["engineering", "refactoring", "code-quality", "maintenance"]
+    },
+    {
+      "name": "git-worktree",
+      "description": "Manage parallel git worktrees for isolated feature development and code review.",
+      "file": "skills/engineering/git-worktree/SKILL.md",
+      "tags": ["engineering", "git", "workflow", "parallel-development"]
+    },
+    {
+      "name": "ci-cd-pipeline-builder",
+      "description": "Analyze a repository's tech stack and generate production-ready CI/CD pipeline configurations.",
+      "file": "skills/engineering/ci-cd-pipeline-builder/SKILL.md",
+      "tags": ["engineering", "devops", "ci-cd", "automation", "github-actions"]
+    },
+    {
+      "name": "mcp-server-builder",
+      "description": "Build a Model Context Protocol (MCP) server from an OpenAPI specification, database schema, or internal API.",
+      "file": "skills/engineering/mcp-server-builder/SKILL.md",
+      "tags": ["engineering", "mcp", "agent-infrastructure", "api", "integration"]
+    },
+    {
+      "name": "brainstorming",
+      "description": "Hard gate that prevents code generation until a design document is approved. Read-first, propose approaches with trade-offs.",
+      "file": "skills/planning/brainstorming/SKILL.md",
+      "tags": ["planning", "design", "requirements", "architecture", "decision-making"]
+    },
+    {
+      "name": "grill-me",
+      "description": "Relentless interrogation session that challenges a plan until every decision branch is resolved.",
+      "file": "skills/planning/grill-me/SKILL.md",
+      "tags": ["planning", "alignment", "requirements", "risk-analysis"]
+    },
+    {
+      "name": "incident-commander",
+      "description": "Active incident response protocol for production outages with severity classification and rollback decision trees.",
+      "file": "skills/planning/incident-commander/SKILL.md",
+      "tags": ["planning", "incident-response", "on-call", "operations", "sre"]
+    },
+    {
+      "name": "caveman",
+      "description": "Ultra-compressed communication mode. Reduces token usage ~75% by dropping filler and hedging.",
+      "file": "skills/productivity/caveman/SKILL.md",
+      "tags": ["productivity", "communication", "token-efficiency", "context-window"]
+    },
+    {
+      "name": "reflect",
+      "description": "End-of-session retrospective: scans conversation for mistakes, friction, wins; captures institutional knowledge.",
+      "file": "skills/productivity/reflect/SKILL.md",
+      "tags": ["productivity", "meta-cognition", "continuous-improvement", "knowledge-management"]
     }
   ],
   "library": {
