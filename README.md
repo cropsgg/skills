@@ -124,7 +124,7 @@ Use this when a team wants **vendored**, reviewable skill revisions committed al
 2. **`/security-audit`** — Expect findings mapped to trust boundaries plus verification commands. **Fail** if there is no OWASP-oriented checklist or no concrete file references on a non-trivial diff.
 3. **`/regression-check`** — Expect a test matrix, commands run, and interpreted failures. **Fail** if no tests are invoked when a test runner exists in-repo.
 
-**Command Code:** run `cmd skills list` (expect 36 skills) and `/skills` in a `cmd` session. Details in [docs/COMMAND_CODE.md](docs/COMMAND_CODE.md).
+**Command Code:** run `cmd skills list` (expect 70 skills) and `/skills` in a `cmd` session. Details in [docs/COMMAND_CODE.md](docs/COMMAND_CODE.md).
 
 ### Troubleshooting
 
@@ -152,7 +152,7 @@ These skills were exercised like internal engineering playbooks: against realist
 
 ## Skill inventory
 
-Lifecycle: **plan** (`/office-hours`, `/requirements-grill`, `/plan-ceo-review`, `/plan-eng-review`, `/to-prd`, `/to-issues`) → **build** (`/tdd`, `/domain-context`) → **verify** (`/self-audit`, `/regression-check`, `/qa-report`, `/design-review`) → **review** (`/pr-review`, `/security-audit`) → **ship** (`/ship`) → **operate** (`/incident-postmortem`, `/retro`, `/health-check`). **Troubleshoot:** `/skills-doctor` → `/investigate`.
+Lifecycle: **plan** (`/office-hours`, `/requirements-grill`, `/plan-ceo-review`, `/plan-design-review`, `/plan-eng-review`, `/autoplan`, `/to-prd`, `/to-issues`) → **build** (`/tdd`, `/domain-context`, `/design-consultation`, `/design-shotgun`) → **verify** (`/self-audit`, `/regression-check`, `/qa-report`, `/design-review`, `/karpathy-rules`, `/chain-of-verification`, `/evaluator-optimizer-loop`, `/adversarial-self-test`, `/tool-use-verification`) → **review** (`/pr-review`, `/security-audit`, `/diagnose`, `/second-opinion`, `/variant-analysis`, `/insecure-defaults`, `/sharp-edges`, `/static-analysis`) → **ship** (`/ship`, `/land-and-deploy`, `/canary`, `/benchmark`) → **operate** (`/incident-postmortem`, `/retro`, `/health-check`, `/context-tiering`, `/learn`, `/document-release`, `/document-generate`). **Troubleshoot:** `/skills-doctor` → `/investigate`. **Meta:** `/write-a-skill`, `/browse`, `/btw`.
 
 ### Engineering
 
@@ -177,6 +177,17 @@ Lifecycle: **plan** (`/office-hours`, `/requirements-grill`, `/plan-ceo-review`,
 | `/triage` | Backlog hygiene, labels, priority, routing. |
 | `/architecture-improvement` | Coupling, god modules, boundary cleanup. |
 | `/zoom-out` | Onboarding; explain unfamiliar module or repo area. |
+| `/diagnose` | Strict 6-step diagnosis loop: reproduce → minimise → hypothesise → instrument → fix → regression-test. |
+| `/second-opinion` | Submit code to external LLM for bias-breaking review; tool-agnostic. |
+| `/variant-analysis` | Find all instances of a bug class once one is found; grep/Semgrep/CodeQL. |
+| `/insecure-defaults` | Detect fail-open security patterns: debug in prod, permissive CORS, default creds. |
+| `/sharp-edges` | Flag eval(), exec(), unsafe interpolation, missing timeouts, prototype pollution. |
+| `/static-analysis` | Orchestrate CodeQL/Semgrep/ESLint; parse SARIF and triage results. |
+| `/karpathy-rules` | Four-gate audit: hallucinated APIs, over-engineering, missing error handling, unverified assumptions. |
+| `/chain-of-verification` | Verify every factual claim against actual source before emitting. |
+| `/evaluator-optimizer-loop` | Score output 1–10, rewrite, loop until ≥9 or 3 iterations. |
+| `/adversarial-self-test` | Red-team own output against OWASP Top 10 for Agentic AI. |
+| `/tool-use-verification` | Pre-flight/post-flight checklist for every tool invocation. |
 
 ### Planning
 
@@ -193,6 +204,13 @@ Lifecycle: **plan** (`/office-hours`, `/requirements-grill`, `/plan-ceo-review`,
 | `/to-issues` | Vertical-slice issue breakdown from PRD/plan. |
 | `/incident-postmortem` | After production incidents; blameless review. |
 | `/retro` | Weekly ship and quality retrospective. |
+| `/plan-design-review` | Rate design dimensions 0–10, define what a 10 looks like, edit the plan. |
+| `/design-consultation` | Build complete design system: colors, typography, spacing, tokens, dark mode. |
+| `/design-shotgun` | Generate 3–5 radically different UI variations; user picks one direction. |
+| `/autoplan` | CEO → design → eng review pipeline in one command with gated stages. |
+| `/document-release` | Update docs to match shipped code; build Diataxis coverage map. |
+| `/document-generate` | Generate missing docs from scratch per Diataxis quadrants. |
+| `/context-tiering` | Manage context as tiered memory: working / reference / archival. Based on MemGPT. |
 
 ### Productivity
 
@@ -204,6 +222,12 @@ Lifecycle: **plan** (`/office-hours`, `/requirements-grill`, `/plan-ceo-review`,
 | `/session-handoff` | Save state for another session or agent. |
 | `/pre-commit-setup` | Scaffold Husky + lint-staged commit gates. |
 | `/skills-doctor` | Diagnose and fix setup, toolchain, and app issues in-session; escalate to `/investigate` when cause stays ambiguous. |
+| `/write-a-skill` | Scaffold SKILL.md following format contract; update all three registries. |
+| `/land-and-deploy` | Merge PR → CI → deploy → verify production health via dashboards. |
+| `/canary` | Post-deploy monitoring: T+1/5/15min checks on errors, perf, page failures. |
+| `/benchmark` | Baseline Core Web Vitals and bundle sizes before/after every PR. |
+| `/learn` | Manage cumulative knowledge across sessions: review, search, prune, export. |
+| `/browse` | Real browser exploration via Playwright MCP/Puppeteer/CDP. Tool-agnostic. |
 
 ### Manual install (without the setup script)
 

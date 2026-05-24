@@ -275,11 +275,155 @@
       "description": "End-of-session retrospective: scans conversation for mistakes, friction, wins; captures institutional knowledge.",
       "file": "skills/productivity/reflect/SKILL.md",
       "tags": ["productivity", "meta-cognition", "continuous-improvement", "knowledge-management"]
+    },
+    {
+      "name": "diagnose",
+      "description": "Disciplined 6-step diagnosis loop with strict evidence gates: reproduce → minimise → hypothesise → instrument → fix → regression-test.",
+      "file": "skills/engineering/diagnose/SKILL.md",
+      "tags": ["engineering", "debugging", "systematic", "root-cause"]
+    },
+    {
+      "name": "second-opinion",
+      "description": "Submit proposed code to an external LLM for bias-breaking review. Tool-agnostic: Claude API, Codex, Gemini, or OpenAI.",
+      "file": "skills/engineering/second-opinion/SKILL.md",
+      "tags": ["engineering", "review", "quality", "ai-assisted"]
+    },
+    {
+      "name": "variant-analysis",
+      "description": "Once a bug is found, systematically grep/Semgrep/CodeQL the codebase to find all other occurrences of the same vulnerability class.",
+      "file": "skills/engineering/variant-analysis/SKILL.md",
+      "tags": ["engineering", "security", "static-analysis", "bug-hunting"]
+    },
+    {
+      "name": "insecure-defaults",
+      "description": "Detect fail-open security patterns: debug in prod, permissive CORS, disabled CSRF, default admin credentials, verbose errors.",
+      "file": "skills/engineering/insecure-defaults/SKILL.md",
+      "tags": ["engineering", "security", "configuration", "audit"]
+    },
+    {
+      "name": "sharp-edges",
+      "description": "Flag error-prone APIs: eval(), exec(), unsafe SQL/Shell interpolation, missing timeouts, process.exit() in libraries.",
+      "file": "skills/engineering/sharp-edges/SKILL.md",
+      "tags": ["engineering", "security", "code-review", "danger-detection"]
+    },
+    {
+      "name": "static-analysis",
+      "description": "Orchestrate CodeQL/Semgrep/ESLint security rules: pick the right tool, run it, parse SARIF, triage by severity and confidence.",
+      "file": "skills/engineering/static-analysis/SKILL.md",
+      "tags": ["engineering", "security", "static-analysis", "sast"]
+    },
+    {
+      "name": "karpathy-rules",
+      "description": "Encode Karpathy's four LLM coding failure modes as enforceable audit gates: hallucinated APIs, over-engineering, missing error handling, unverified assumptions.",
+      "file": "skills/engineering/karpathy-rules/SKILL.md",
+      "tags": ["engineering", "quality", "self-audit", "ai-safety"]
+    },
+    {
+      "name": "chain-of-verification",
+      "description": "Mandatory verification of every factual claim before emission. Claims about code are hypotheses until verified against actual source.",
+      "file": "skills/engineering/chain-of-verification/SKILL.md",
+      "tags": ["engineering", "quality", "hallucination-reduction", "verification"]
+    },
+    {
+      "name": "evaluator-optimizer-loop",
+      "description": "Split into Evaluator and Optimizer personas. Score output 1–10 on correctness/completeness/safety. Loop until ≥9 or 3 iterations.",
+      "file": "skills/engineering/evaluator-optimizer-loop/SKILL.md",
+      "tags": ["engineering", "quality", "self-improvement", "iteration"]
+    },
+    {
+      "name": "adversarial-self-test",
+      "description": "Red-team the agent's own output for prompt injection, unsafe defaults, and injection surfaces against OWASP Top 10 for Agentic AI.",
+      "file": "skills/engineering/adversarial-self-test/SKILL.md",
+      "tags": ["engineering", "security", "ai-safety", "red-team"]
+    },
+    {
+      "name": "tool-use-verification",
+      "description": "Pre-flight/post-flight checklist for every tool invocation. Verify scope, safety, idempotency before; verify output after.",
+      "file": "skills/engineering/tool-use-verification/SKILL.md",
+      "tags": ["engineering", "safety", "verification", "tool-use"]
+    },
+    {
+      "name": "plan-design-review",
+      "description": "Rate each design dimension 0–10 (typography, spacing, color, motion, interaction, accessibility, responsiveness), edit the plan.",
+      "file": "skills/planning/plan-design-review/SKILL.md",
+      "tags": ["planning", "design", "review", "ui"]
+    },
+    {
+      "name": "design-consultation",
+      "description": "Build a complete design system from scratch: 11-step OKLCH color palettes, typography scale, spacing system, component tokens, dark mode.",
+      "file": "skills/planning/design-consultation/SKILL.md",
+      "tags": ["planning", "design", "design-system", "tokens"]
+    },
+    {
+      "name": "design-shotgun",
+      "description": "Generate 3–5 radically different UI variations for the same feature to force divergence before convergence.",
+      "file": "skills/planning/design-shotgun/SKILL.md",
+      "tags": ["planning", "design", "ideation", "ui"]
+    },
+    {
+      "name": "autoplan",
+      "description": "Run the full planning pipeline: CEO review → design review → engineering review → locked plan → issue decomposition.",
+      "file": "skills/planning/autoplan/SKILL.md",
+      "tags": ["planning", "automation", "pipeline", "workflow"]
+    },
+    {
+      "name": "document-release",
+      "description": "Update all docs to match shipped code; build Diataxis coverage map. Release-triggered documentation audit.",
+      "file": "skills/planning/document-release/SKILL.md",
+      "tags": ["planning", "documentation", "release", "diataxis"]
+    },
+    {
+      "name": "document-generate",
+      "description": "Generate missing docs from scratch using Diataxis framework. Identify empty quadrants, generate tutorials/how-tos/reference/explanation.",
+      "file": "skills/planning/document-generate/SKILL.md",
+      "tags": ["planning", "documentation", "generation", "diataxis"]
+    },
+    {
+      "name": "context-tiering",
+      "description": "Manage context window as tiered memory: working (active), reference (indexed), archival (compressed). Based on MemGPT/Letta architecture.",
+      "file": "skills/planning/context-tiering/SKILL.md",
+      "tags": ["planning", "context", "memory-management", "efficiency"]
+    },
+    {
+      "name": "write-a-skill",
+      "description": "Scaffold a new SKILL.md following exact format contract, update all three registry files, validate evidence and format compliance.",
+      "file": "skills/productivity/write-a-skill/SKILL.md",
+      "tags": ["productivity", "meta", "skills-authoring", "dx"]
+    },
+    {
+      "name": "land-and-deploy",
+      "description": "Merge PR after CI green, monitor deployment pipeline through to production, verify health via dashboards and error budgets.",
+      "file": "skills/productivity/land-and-deploy/SKILL.md",
+      "tags": ["productivity", "deployment", "release", "operations"]
+    },
+    {
+      "name": "canary",
+      "description": "Post-deploy monitoring loop: T+1min console errors, T+5min error budget and p99, T+15min final health vs baseline.",
+      "file": "skills/productivity/canary/SKILL.md",
+      "tags": ["productivity", "deployment", "monitoring", "operations"]
+    },
+    {
+      "name": "benchmark",
+      "description": "Baseline Core Web Vitals (LCP/CLS/INP/TBT) and bundle sizes before/after every PR. Detect regressions >5%.",
+      "file": "skills/productivity/benchmark/SKILL.md",
+      "tags": ["productivity", "performance", "web-vitals", "measurement"]
+    },
+    {
+      "name": "learn",
+      "description": "Manage cumulative knowledge across sessions: review, search, prune, export. Multi-session institutional memory.",
+      "file": "skills/productivity/learn/SKILL.md",
+      "tags": ["productivity", "knowledge-management", "meta-cognition", "memory"]
+    },
+    {
+      "name": "browse",
+      "description": "Real browser-based exploration using Playwright MCP, Puppeteer, or Chrome DevTools Protocol. Tool-agnostic.",
+      "file": "skills/productivity/browse/SKILL.md",
+      "tags": ["productivity", "browser", "exploration", "web"]
     }
   ],
   "library": {
     "name": "AI Skills for Production Engineering",
-    "version": "2.1.0",
+    "version": "2.2.0",
     "repository": "https://github.com/cropsgg/skills",
     "setupCommand": "git clone --single-branch --depth 1 https://github.com/cropsgg/skills.git ~/.ai-skills && cd ~/.ai-skills && ./setup",
     "commandCodeSetup": "cmd skills add cropsgg/skills --global"
