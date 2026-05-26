@@ -12,7 +12,7 @@ If a skill produces a report, treat that report like a code review: every findin
 
 ## The Research Behind These Skills
 
-### Self-audit and validation
+### Self-audit and validation skill
 
 Modern agents benefit from structured reflection and verification loops that treat outputs as hypotheses until checked.
 
