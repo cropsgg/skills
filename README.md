@@ -10,6 +10,7 @@ If a skill produces a report, treat that report like a code review: every findin
 
 ---
 
+
 ## The Research Behind These Skills
 
 ### Self-audit and validation skill
