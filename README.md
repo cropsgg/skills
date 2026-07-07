@@ -62,7 +62,7 @@ Schema and migration safety prevent slow-motion production incidents.
 
 ## Installation — 30 Seconds
 
-This library ships a cross-host installer so skills are available any supported coding agent with one command after clone. Skills stay Markdown-on-disk (portable, reviewable). Compatibility note: these procedures were exercised across **GPT-4o**, **Claude 3.5/3.7 Sonnet**, and **o3-mini** during library validation—prompts are written to be model-agnostic.
+This library ships a cross-host installer so skills are available to any supported coding agent with one command after clone. Skills stay Markdown-on-disk (portable, reviewable). Compatibility note: these procedures were exercised across **GPT-4o**, **Claude 3.5/3.7 Sonnet**, and **o3-mini** during library validation—prompts are written to be model-agnostic.
 
 For setup/source code, see [`bin/`](bin/), [`src/`](src/), and [`docs/HOST_REFERENCE.md`](docs/HOST_REFERENCE.md).
 
